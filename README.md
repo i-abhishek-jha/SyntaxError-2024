@@ -1,7 +1,8 @@
 # SyntaxError-2024
 Failed Project(KamDev)
 
-KamDev - Mood Tracker & Wellness Toolkit 🌟
+KamDev - Mood Tracker & Wellness Toolkit
+
 KamDev is a simple and interactive web app designed to help users track their moods, practice mindfulness, and enhance their emotional well-being through various tools.
 
 Features
