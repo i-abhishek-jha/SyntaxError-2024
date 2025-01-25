@@ -5,7 +5,7 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebas
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAOuePCkI9OKtaxFJdTZjnUMEzxs5nPlbg",
+    apiKey: "",
     authDomain: "track-mood-d55c8.firebaseapp.com",
     projectId: "track-mood-d55c8",
     storageBucket: "track-mood-d55c8.appspot.com",
