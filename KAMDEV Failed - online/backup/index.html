@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Oasis</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js -->
+</head>
+<body>
+    <header>
+        <h1>Mind Oasis</h1>
+        <p>Your Sanctuary for Mental Clarity and Calm</p>
+    </header>
+
+    <nav>
+        <button class="tab-button" onclick="openTab('moodTracker')">Mood Tracker</button>
+        <button class="tab-button" onclick="openTab('chart')">Chart</button>
+        <button class="tab-button" onclick="openTab('journal')">Journal</button>
+    </nav>
+
+    <main>
+        <!-- Content for Mood Tracker tab -->
+        <section id="moodTracker" class="tab-content">
+            <h2>Mood Tracker</h2>
+            <a href="#" class="emoji" onclick="imageClick('happy')">
+                <img src="png/happy.png" alt="happy face">
+            </a>
+            <a href="#" class="emoji" onclick="imageClick('sad')">
+                <img src="png/sad.png" alt="sad face">
+            </a>
+            <a href="#" class="emoji" onclick="imageClick('neutral')">
+                <img src="png/neutral.png" alt="neutral face">
+            </a>
+            <a href="#" class="emoji" onclick="imageClick('angry')">
+                <img src="png/angry.png" alt="angry face">
+            </a>
+            <p id="mood-message"></p>
+        </section>
+
+        <!-- Content for Chart tab -->
+        <section id="chart" class="tab-content" style="display: none;">
+            <h2>Mood Chart</h2>
+            <canvas id="moodChart" width="400" height="200"></canvas>
+        </section>
+
+        <!-- Music Player Section -->
+        <section id="musicPlayer" class="music-player" style="display: none;">
+            <h2>Relaxing Music</h2>
+            <audio id="relaxMusic" controls>
+                <source src="https://www.bensound.com/bensound-music/bensound-relaxing.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
+
+        <!-- Journal Section -->
+        <section id="journal" class="tab-content" style="display: none;">
+            <h2>Your Journal</h2>
+            <textarea id="journalEntry" rows="10" cols="30" placeholder="Write your journal entry here..."></textarea>
+            <button onclick="saveJournal()">Save Journal Entry</button>
+            <p id="journalMessage"></p>
+            <h3>Previous Entries:</h3>
+            <div id="journalEntries"></div>
+        </section>
+    </main>
+
+    <script type="module" src="scripts.js"></script>
+    <script>
+        // JavaScript to handle tab switching
+        function openTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => {
+                tab.style.display = 'none';  // Hide all tabs
+            });
+            document.getElementById(tabId).style.display = 'block';  // Show the selected tab
+            
+            if (tabId === 'chart') {
+                fetchMoodData(); // Fetch data when the chart tab is opened
+            }
+        }
+
+        // Set the default tab to be visible on page load
+        window.onload = function() {
+            openTab('moodTracker');
+        }
+    </script>
+</body>
+</html>

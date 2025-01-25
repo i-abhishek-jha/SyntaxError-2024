@@ -1,0 +1,60 @@
+body {
+    background-color: #E6F3FF;
+    font-family: sans-serif;
+}
+
+header {
+    text-align: center;
+}
+
+h1, p {
+    text-align: center;
+    
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.tab-button {
+    margin: 0 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.tab-button:hover {
+    background-color: #45a049; /* Darker green */
+}
+
+.emoji {
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.emoji img {
+    width: 50px; /* Adjust as needed */
+    height: auto;
+    border-radius: 5px; /* Optional: for rounded corners */
+}
+
+.emoji:hover {
+    transform: scale(1.1); /* Slightly enlarges the button on hover */
+}
+
+.emoji:active {
+    transform: scale(0.95); /* Slightly shrinks the button when clicked */
+}
+
+.tab-content {
+    display: none; /* Initially hide all tab contents */
+    text-align: center; /* Center text inside tab content */
+}
